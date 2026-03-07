@@ -1,1 +1,470 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><title>WeHandl</title></head><body><h1>Welcome to WeHandl</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WeHandl.ai — AI Agents That Capture and Convert Your Leads</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold: #F5A623;
+      --gold-light: #FFD07A;
+      --dark: #1A1A1A;
+      --darker: #111111;
+      --text: #F0EDE8;
+      --muted: #888480;
+      --card: #202020;
+      --border: rgba(245,166,35,0.12);
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--darker); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      padding: 18px 56px; display: flex; justify-content: space-between; align-items: center;
+      background: rgba(17,17,17,0.92); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo img { height: 34px; }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { background: var(--gold); color: #111; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 10px 22px; text-decoration: none; transition: background 0.2s, transform 0.15s; white-space: nowrap; }
+    .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    /* SHARED */
+    .tag { font-family: 'Syne', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: block; }
+    .section-header { max-width: 700px; margin-bottom: 64px; }
+    .section-header h2 { font-family: 'Syne', sans-serif; font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 800; line-height: 1.1; margin-bottom: 16px; }
+    .section-header h2 em { font-style: normal; color: var(--gold); }
+    .section-header p { color: var(--muted); font-size: 1rem; line-height: 1.8; }
+    .btn { display: inline-block; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.05em; padding: 15px 34px; text-decoration: none; cursor: pointer; border: none; transition: all 0.2s; }
+    .btn-gold { background: var(--gold); color: #111; }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid rgba(255,255,255,0.18); }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; padding: 160px 56px 100px;
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .hero-orb { position: absolute; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(245,166,35,0.08) 0%, transparent 65%); top: -100px; right: -200px; pointer-events: none; animation: breathe 8s ease-in-out infinite; }
+    .hero-orb2 { position: absolute; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(245,166,35,0.05) 0%, transparent 70%); bottom: 80px; left: -100px; pointer-events: none; animation: breathe 10s 2s ease-in-out infinite; }
+    @keyframes breathe { 0%,100%{transform:scale(1)} 50%{transform:scale(1.08)} }
+
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; animation: up 0.7s ease both; }
+    .eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+    .hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(3rem, 6.5vw, 6.5rem); font-weight: 800; line-height: 1.0; letter-spacing: -0.03em; max-width: 900px; margin-bottom: 28px; animation: up 0.7s 0.1s ease both; }
+    .hero h1 em { font-style: normal; color: var(--gold); }
+    .hero-sub { font-size: 1.15rem; color: var(--muted); max-width: 560px; line-height: 1.85; margin-bottom: 48px; animation: up 0.7s 0.2s ease both; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; animation: up 0.7s 0.3s ease both; }
+    .hero-proof { margin-top: 80px; display: flex; gap: 60px; flex-wrap: wrap; animation: up 0.7s 0.4s ease both; }
+    .proof-num { font-family: 'Syne', sans-serif; font-size: 2.6rem; font-weight: 800; color: var(--gold); line-height: 1; }
+    .proof-label { font-size: 0.82rem; color: var(--muted); margin-top: 5px; max-width: 140px; line-height: 1.4; }
+
+    /* PROBLEM */
+    .problem { padding: 100px 56px; background: var(--dark); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .problem-left h2 { font-family: 'Syne', sans-serif; font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 800; line-height: 1.1; margin-bottom: 24px; }
+    .problem-left h2 em { font-style: normal; color: var(--gold); }
+    .problem-left p { color: var(--muted); font-size: 1rem; line-height: 1.85; margin-bottom: 20px; }
+    .problem-left .kicker { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--text); border-left: 3px solid var(--gold); padding-left: 20px; line-height: 1.6; margin-top: 32px; }
+    .problem-right { display: flex; flex-direction: column; gap: 3px; }
+    .prob-card { background: var(--card); padding: 32px 36px; border-left: 3px solid transparent; transition: border-color 0.25s; }
+    .prob-card:hover { border-left-color: var(--gold); }
+    .prob-icon { font-size: 1.6rem; margin-bottom: 14px; }
+    .prob-card h4 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .prob-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; margin: 0; }
+
+    /* WHO */
+    .who { padding: 100px 56px; background: var(--dark); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .who-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 2px; }
+    .who-card { background: var(--card); padding: 36px 28px; border-left: 3px solid transparent; transition: border-color 0.25s; }
+    .who-card:hover { border-left-color: var(--gold); }
+    .who-icon { font-size: 1.8rem; margin-bottom: 14px; }
+    .who-card h3 { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+    .who-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+    /* SOLUTION */
+    .solution { padding: 100px 56px; }
+    .solution-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2px; margin-top: 0; }
+    .sol-card { background: var(--card); padding: 40px 36px; position: relative; overflow: hidden; transition: background 0.25s; }
+    .sol-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.3s; }
+    .sol-card:hover { background: #262626; }
+    .sol-card:hover::after { transform: scaleX(1); }
+    .sol-num { font-family: 'Syne', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; color: var(--gold); opacity: 0.6; margin-bottom: 16px; }
+    .sol-card h3 { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
+    .sol-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+
+    /* PRODUCTS */
+    .products { padding: 100px 56px; background: var(--dark); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2px; }
+    .product-card { background: var(--card); padding: 44px 36px; position: relative; transition: background 0.25s; overflow: hidden; }
+    .product-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.3s; }
+    .product-card:hover { background: #262626; }
+    .product-card:hover::before { transform: scaleX(1); }
+    .product-icon { font-size: 2rem; margin-bottom: 20px; }
+    .product-card h3 { font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; }
+    .product-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
+    /* GUIDES */
+    .guides { padding: 100px 56px; }
+    .guides-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2px; }
+    .guide-card { background: var(--card); padding: 40px 36px; display: flex; flex-direction: column; border-top: 2px solid transparent; transition: border-color 0.25s, background 0.25s; }
+    .guide-card:hover { border-top-color: var(--gold); background: #262626; }
+    .guide-number { font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; color: var(--gold); opacity: 0.55; margin-bottom: 18px; }
+    .guide-card h3 { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; line-height: 1.25; }
+    .guide-card p { font-size: 0.87rem; color: var(--muted); line-height: 1.7; flex: 1; margin-bottom: 26px; }
+    .guide-btn { display: inline-block; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(245,166,35,0.35); padding: 9px 18px; cursor: pointer; background: transparent; transition: all 0.2s; align-self: flex-start; }
+    .guide-btn:hover { background: var(--gold); color: #111; border-color: var(--gold); }
+
+    /* CTA BANNER */
+    .cta-banner { padding: 100px 56px; text-align: center; position: relative; overflow: hidden; }
+    .cta-banner::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(245,166,35,0.07) 0%, transparent 70%); }
+    .cta-banner h2 { font-family: 'Syne', sans-serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; line-height: 1.1; max-width: 700px; margin: 0 auto 20px; }
+    .cta-banner h2 em { font-style: normal; color: var(--gold); }
+    .cta-banner p { color: var(--muted); max-width: 480px; margin: 0 auto 40px; font-size: 1rem; line-height: 1.8; }
+
+    /* MODAL */
+    .modal-overlay { position: fixed; inset: 0; z-index: 500; background: rgba(0,0,0,0.78); backdrop-filter: blur(6px); display: flex; align-items: center; justify-content: center; padding: 24px; opacity: 0; pointer-events: none; transition: opacity 0.25s; }
+    .modal-overlay.active { opacity: 1; pointer-events: all; }
+    .modal { background: var(--dark); border: 1px solid var(--border); padding: 52px 48px; max-width: 480px; width: 100%; position: relative; transform: translateY(20px); transition: transform 0.25s; }
+    .modal-overlay.active .modal { transform: translateY(0); }
+    .modal-close { position: absolute; top: 18px; right: 22px; background: none; border: none; color: var(--muted); font-size: 1.4rem; cursor: pointer; transition: color 0.2s; line-height: 1; }
+    .modal-close:hover { color: var(--text); }
+    .modal-guide-label { font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); background: rgba(245,166,35,0.09); padding: 4px 10px; display: inline-block; margin-bottom: 18px; }
+    .modal h3 { font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 800; line-height: 1.15; margin-bottom: 10px; }
+    .modal > p { color: var(--muted); font-size: 0.9rem; margin-bottom: 28px; line-height: 1.7; }
+    .m-group { margin-bottom: 12px; }
+    .m-group input { width: 100%; background: var(--darker); border: 1px solid rgba(255,255,255,0.08); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 0.92rem; padding: 13px 16px; outline: none; transition: border-color 0.2s; }
+    .m-group input:focus { border-color: var(--gold); }
+    .m-group input::placeholder { color: var(--muted); }
+    .m-submit { width: 100%; background: var(--gold); color: #111; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.05em; padding: 14px; border: none; cursor: pointer; margin-top: 6px; transition: background 0.2s; }
+    .m-submit:hover { background: var(--gold-light); }
+    .m-note { font-size: 0.74rem; color: var(--muted); margin-top: 12px; text-align: center; }
+    .modal-success { display: none; text-align: center; padding: 20px 0; }
+    .modal-success .check { font-size: 3rem; margin-bottom: 16px; }
+    .modal-success h3 { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 800; margin-bottom: 10px; }
+    .modal-success p { color: var(--muted); font-size: 0.9rem; }
+
+    /* FOOTER */
+    footer { padding: 44px 56px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    footer img { height: 26px; }
+    footer p { font-size: 0.82rem; color: var(--muted); }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .hero, .problem, .who, .solution, .products, .guides, .cta-banner { padding: 64px 24px; }
+      .hero { padding-top: 130px; }
+      .problem-grid { grid-template-columns: 1fr; gap: 48px; }
+      footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+      .hero-proof { gap: 36px; }
+      .modal { padding: 40px 28px; }
+    }
+
+    @keyframes up { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modalForm">
+      <div class="modal-guide-label">Free Guide</div>
+      <h3 id="modalTitle">Guide Title</h3>
+      <p>Enter your details below and we'll send you instant access.</p>
+      <div class="m-group"><input type="text" id="mName" placeholder="Your First Name" /></div>
+      <div class="m-group"><input type="email" id="mEmail" placeholder="Your Business Email" /></div>
+      <div class="m-group"><input type="text" id="mBusiness" placeholder="Your Business Name" /></div>
+      <button class="m-submit" onclick="submitGuide()">Send Me the Free Guide →</button>
+      <p class="m-note">No spam. Unsubscribe anytime.</p>
+    </div>
+    <div class="modal-success" id="modalSuccess">
+      <div class="check">✅</div>
+      <h3>You're in!</h3>
+      <p>Check your inbox — your free guide is on its way.</p>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><img src="WeHandl_ai.png" alt="WeHandl.ai" /></div>
+  <div class="nav-links">
+    <a href="#problem">The Problem</a>
+    <a href="#who">Who It's For</a>
+    <a href="#solution">The Solution</a>
+    <a href="#products">Products</a>
+    <a href="#guides">Free Guides</a>
+  </div>
+  <a href="#cta" class="nav-cta">Book a Demo</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-orb"></div>
+  <div class="hero-orb2"></div>
+  <div class="eyebrow">AI-Enabled Growth & Marketing</div>
+  <h1>AI Agents That<br><em>Capture and Convert</em><br>Your Leads.</h1>
+  <p class="hero-sub">WeHandl deploys AI systems that respond instantly to inquiries, follow up automatically, and help businesses convert more leads into customers.</p>
+  <div class="hero-actions">
+    <a href="#cta" class="btn btn-gold">Book a Demo</a>
+    <a href="#guides" class="btn btn-outline">Browse Free Guides</a>
+  </div>
+  <div class="hero-proof">
+    <div class="proof-item"><div class="proof-num">24/7</div><div class="proof-label">Instant lead response, around the clock</div></div>
+    <div class="proof-item"><div class="proof-num">10x</div><div class="proof-label">More follow-up without extra headcount</div></div>
+    <div class="proof-item"><div class="proof-num">$0</div><div class="proof-label">In marketing hires needed</div></div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem" id="problem">
+  <div class="problem-grid">
+    <div class="problem-left">
+      <span class="tag">The Problem</span>
+      <h2>Most businesses lose leads<br><em>before they even try.</em></h2>
+      <p>It's not that your product isn't good. It's that leads expect instant responses — and most businesses simply can't deliver that at scale.</p>
+      <p>The window to win a customer is narrow. Response time, follow-up consistency, and marketing frequency all determine whether someone chooses you or your competitor.</p>
+      <div class="kicker">Your competitors may respond minutes or hours faster. That difference determines who wins the customer.</div>
+    </div>
+    <div class="problem-right">
+      <div class="prob-card">
+        <div class="prob-icon">🐌</div>
+        <h4>They Respond Too Slowly</h4>
+        <p>Studies show 78% of customers buy from the business that responds first. If you're not instant, you're likely losing.</p>
+      </div>
+      <div class="prob-card">
+        <div class="prob-icon">🕳️</div>
+        <h4>They Forget to Follow Up</h4>
+        <p>Most leads need 5–8 touchpoints before converting. Without automation, most businesses stop at one or two.</p>
+      </div>
+      <div class="prob-card">
+        <div class="prob-icon">📭</div>
+        <h4>Marketing is Inconsistent</h4>
+        <p>Posting stops when things get busy. Ads run without optimization. The brand goes quiet — and so does the pipeline.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="who" id="who">
+  <div class="section-header">
+    <span class="tag">Who It's For</span>
+    <h2>Built for businesses that<br><em>run on leads.</em></h2>
+    <p>If customers find you, call you, or book you — WeHandl was built for you. We work with local service businesses across every industry that depends on a steady flow of new clients.</p>
+  </div>
+  <div class="who-grid">
+    <div class="who-card"><div class="who-icon">🧹</div><h3>Cleaners & Housekeeping</h3><p>Fill your schedule with consistent local leads on autopilot.</p></div>
+    <div class="who-card"><div class="who-icon">🌿</div><h3>Landscapers & Lawn Care</h3><p>Get found by homeowners before your competitors do.</p></div>
+    <div class="who-card"><div class="who-icon">🏠</div><h3>Roofers</h3><p>Capture storm season leads instantly and follow up before the competition calls back.</p></div>
+    <div class="who-card"><div class="who-icon">❄️</div><h3>HVAC Companies</h3><p>Never miss a service call — AI responds and books 24/7, even on weekends.</p></div>
+    <div class="who-card"><div class="who-icon">🔧</div><h3>Plumbing Companies</h3><p>Turn urgent inquiries into booked jobs before the customer calls someone else.</p></div>
+    <div class="who-card"><div class="who-icon">📸</div><h3>Photographers</h3><p>Automate inquiries, send pricing, and book sessions without back-and-forth emails.</p></div>
+    <div class="who-card"><div class="who-icon">💆</div><h3>Medspas & Wellness</h3><p>Keep your booking calendar full with AI-driven outreach and instant lead response.</p></div>
+    <div class="who-card"><div class="who-icon">➕</div><h3>And Many More</h3><p>Any local service business that relies on leads, calls, or bookings — WeHandl was built for you.</p></div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="solution" id="solution">
+  <div class="section-header">
+    <span class="tag">The Solution</span>
+    <h2>AI Agents Built for<br><em>Business Growth.</em></h2>
+    <p>WeHandl deploys AI agents that handle the parts of your business that require speed, consistency, and scale — so your team can focus on closing and delivering.</p>
+  </div>
+  <div class="solution-list">
+    <div class="sol-card">
+      <div class="sol-num">01</div>
+      <h3>Respond Instantly to Inbound Leads</h3>
+      <p>AI agents reply to every inquiry the moment it comes in — via email, SMS, social DMs, or web forms — 24 hours a day, 7 days a week.</p>
+    </div>
+    <div class="sol-card">
+      <div class="sol-num">02</div>
+      <h3>Qualify Potential Customers</h3>
+      <p>Not every lead is a good fit. AI agents ask the right questions, filter out time-wasters, and route high-intent prospects straight to your calendar.</p>
+    </div>
+    <div class="sol-card">
+      <div class="sol-num">03</div>
+      <h3>Automate Follow-Up Messages</h3>
+      <p>Personalized follow-up sequences that run on autopilot — keeping your business top of mind until the prospect is ready to buy.</p>
+    </div>
+    <div class="sol-card">
+      <div class="sol-num">04</div>
+      <h3>Generate Marketing Content</h3>
+      <p>AI creates social posts, ad copy, email campaigns, and video scripts that keep your brand visible and your audience engaged — consistently.</p>
+    </div>
+    <div class="sol-card">
+      <div class="sol-num">05</div>
+      <h3>Improve Advertising Performance</h3>
+      <p>AI agents monitor, test, and optimize your ad campaigns in real time — cutting wasted spend and doubling down on what's actually converting.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="section-header">
+    <span class="tag">Our Products</span>
+    <h2>Four AI engines.<br><em>One growth system.</em></h2>
+    <p>Each WeHandl product is a purpose-built AI agent designed to handle a specific part of your growth — and they work even better together.</p>
+  </div>
+  <div class="products-grid">
+    <div class="product-card">
+      <div class="product-icon">⚡</div>
+      <h3>The Lead Engine</h3>
+      <p>AI agent that responds instantly to every inbound inquiry and books appointments directly to your calendar — 24/7, without human involvement.</p>
+    </div>
+    <div class="product-card">
+      <div class="product-icon">🔁</div>
+      <h3>The Follow-Up Engine</h3>
+      <p>Automated message sequences that nurture cold and warm prospects until they're ready to convert — so no lead ever falls through the cracks again.</p>
+    </div>
+    <div class="product-card">
+      <div class="product-icon">⭐</div>
+      <h3>The Reputation Engine</h3>
+      <p>Automated review generation that consistently builds your online reputation — turning happy customers into public proof that drives more inbound leads.</p>
+    </div>
+    <div class="product-card">
+      <div class="product-icon">✍️</div>
+      <h3>The Content Engine</h3>
+      <p>AI-generated marketing content for social media, email, and ads — so your brand stays active and your message stays sharp, every single day.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner" id="cta">
+  <h2>Want Help<br><em>Implementing AI?</em></h2>
+  <p>Our team deploys AI marketing systems for businesses. Book a consultation and we'll show you exactly what's possible for your specific situation.</p>
+  <a href="mailto:hello@wehandl.ai" class="btn btn-gold">Schedule a Demo</a>
+</section>
+
+<!-- GUIDES -->
+<section class="guides" id="guides">
+  <div class="section-header">
+    <span class="tag">Free Resources</span>
+    <h2>The WeHandl<br><em>AI Marketing Library.</em></h2>
+    <p>10 free guides written for small business owners and e-commerce brands. Practical, no-fluff playbooks that show you exactly how to use AI to grow.</p>
+  </div>
+  <div class="guides-grid">
+
+    <div class="guide-card">
+      <div class="guide-number">GUIDE 01</div>
+      <h3>Build Your First AI Agent</h3>
+      <p>A step-by-step walkthrough for launching your first AI marketing agent — no tech experience required. Get your first automation live fast.</p>
+      <button class="guide-btn" onclick="openModal('Build Your First AI Agent')">Download Free →</button>
+    </div>
+
+    <div class="guide-card">
+      <div class="guide-number">GUIDE 02</div>
+      <h3>Never Miss Another Lead</h3>
+      <p>How to set up instant AI response and automated follow-up so every single lead gets contacted — even when you're off the clock.</p>
+      <button class="guide-btn" onclick="openModal('Never Miss Another Lead')">Download Free →</button>
+    </div>
+
+    <div class="guide-card">
+      <div class="guide-number">GUIDE 03</div>
+      <h3>AI Marketing for Local Businesses</h3>
+      <p>A local-focused playbook for using AI to dominate your area — from Google presence to social media to automated outreach campaigns.</p>
+      <button class="guide-btn" onclick="openModal('AI Marketing for Local Businesses')">Download Free →</button>
+    </div>
+
+    <div class="guide-card">
+      <div class="guide-number">GUIDE 04</div>
+      <h3>The AI Marketing Roadmap</h3>
+      <p>A clear, sequenced plan for implementing AI marketing in your business — from your first tool to a fully automated growth system.</p>
+      <button class="guide-btn" onclick="openModal('The AI Marketing Roadmap')">Download Free →</button>
+    </div>
+
+    <div class="guide-card">
+      <div class="guide-number">GUIDE 05</div>
+      <h3>AI Tools That Actually Work</h3>
+      <p>The curated shortlist of AI tools that deliver real ROI for small businesses — and which ones to avoid wasting your time and money on.</p>
+      <button class="guide-btn" onclick="openModal('AI Tools That Actually Work')">Download Free →</button>
+    </div>
+
+    <div class="guide-card">
+      <div class="guide-number">GUIDE 06</div>
+      <h3>How AI Improves Lead Conversion</h3>
+      <p>The psychology and mechanics behind AI-powered lead conversion — and how to set up a system that turns more inquiries into paying customers.</p>
+      <button class="guide-btn" onclick="openModal('How AI Improves Lead Conversion')">Download Free →</button>
+    </div>
+
+    <div class="guide-card">
+      <div class="guide-number">GUIDE 07</div>
+      <h3>AI for Home Service Businesses</h3>
+      <p>Built for cleaners, landscapers, contractors, and trades. A hands-on guide to using AI to stay fully booked and ahead of local competition.</p>
+      <button class="guide-btn" onclick="openModal('AI for Home Service Businesses')">Download Free →</button>
+    </div>
+
+    <div class="guide-card">
+      <div class="guide-number">GUIDE 08</div>
+      <h3>AI for E-Commerce Marketing</h3>
+      <p>How e-commerce brands use AI to run smarter ad campaigns, recover abandoned carts, and scale revenue without scaling their team size.</p>
+      <button class="guide-btn" onclick="openModal('AI for E-Commerce Marketing')">Download Free →</button>
+    </div>
+
+    <div class="guide-card">
+      <div class="guide-number">GUIDE 09</div>
+      <h3>How AI Automates Customer Follow-Up</h3>
+      <p>The complete guide to building automated follow-up sequences that convert cold leads into customers — without any manual effort.</p>
+      <button class="guide-btn" onclick="openModal('How AI Automates Customer Follow-Up')">Download Free →</button>
+    </div>
+
+    <div class="guide-card">
+      <div class="guide-number">GUIDE 10</div>
+      <h3>How Small Businesses Use AI to Compete With Bigger Brands</h3>
+      <p>The exact playbook small businesses use to out-market larger competitors using AI — faster execution, smarter targeting, lower cost.</p>
+      <button class="guide-btn" onclick="openModal('How Small Businesses Use AI to Compete With Bigger Brands')">Download Free →</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="WeHandl_ai.png" alt="WeHandl.ai" />
+  <p>© 2025 WeHandl.ai — All rights reserved.</p>
+</footer>
+
+<script>
+  function openModal(title) {
+    document.getElementById('modalTitle').textContent = title;
+    document.getElementById('modalForm').style.display = 'block';
+    document.getElementById('modalSuccess').style.display = 'none';
+    document.getElementById('mName').value = '';
+    document.getElementById('mEmail').value = '';
+    document.getElementById('mBusiness').value = '';
+    document.getElementById('modalOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('modalOverlay')) closeModal();
+  }
+  function submitGuide() {
+    const name = document.getElementById('mName').value.trim();
+    const email = document.getElementById('mEmail').value.trim();
+    if (!name || !email) { alert('Please enter your name and email to continue.'); return; }
+    document.getElementById('modalForm').style.display = 'none';
+    document.getElementById('modalSuccess').style.display = 'block';
+    setTimeout(closeModal, 3000);
+  }
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+</script>
+
+</body>
+</html>
