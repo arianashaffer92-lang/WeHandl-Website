@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy | WeHandl.ai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #0A2540;
+      --blue: #2563EB;
+      --blue-light: #3B82F6;
+      --green: #10B981;
+      --bg: #F6F9FC;
+      --section-alt: #EEF2F7;
+      --text: #111827;
+      --muted: #6B7280;
+      --card: #FFFFFF;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+
+    /* NAV */
+    nav {
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 56px;
+      height: 80px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a.logo img { height: 52px; }
+    nav .nav-links { display: flex; align-items: center; gap: 32px; }
+    nav .nav-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    nav .nav-links a:hover { color: #fff; }
+    nav .btn-nav {
+      background: var(--blue);
+      color: #fff !important;
+      padding: 10px 22px;
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    nav .btn-nav:hover { background: var(--blue-light); }
+
+    /* HERO STRIP */
+    .page-hero {
+      background: var(--primary);
+      padding: 72px 56px 56px;
+      text-align: center;
+    }
+    .page-hero h1 {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .page-hero p {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.95rem;
+    }
+
+    /* CONTENT */
+    .content-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 64px 32px 80px;
+    }
+    .intro-box {
+      background: var(--card);
+      border-left: 4px solid var(--green);
+      padding: 24px 28px;
+      margin-bottom: 48px;
+      border-radius: 0 8px 8px 0;
+    }
+    .intro-box p { font-size: 0.97rem; color: var(--text); margin-bottom: 10px; }
+    .intro-box p:last-child { margin-bottom: 0; }
+
+    .section {
+      margin-bottom: 48px;
+    }
+    .section h2 {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--section-alt);
+    }
+    .section h3 {
+      font-family: 'Sora', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 20px 0 10px;
+    }
+    .section p {
+      color: #374151;
+      font-size: 0.96rem;
+      margin-bottom: 12px;
+    }
+    .section ul {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0 16px;
+    }
+    .section ul li {
+      padding: 7px 0 7px 20px;
+      position: relative;
+      color: #374151;
+      font-size: 0.95rem;
+      border-bottom: 1px solid #F3F4F6;
+    }
+    .section ul li:last-child { border-bottom: none; }
+    .section ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .contact-box {
+      background: var(--primary);
+      color: #fff;
+      padding: 32px 36px;
+      border-radius: 12px;
+      margin-top: 48px;
+    }
+    .contact-box h2 {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      border: none;
+      padding: 0;
+      color: #fff;
+    }
+    .contact-box p { color: rgba(255,255,255,0.75); font-size: 0.95rem; margin-bottom: 6px; }
+    .contact-box a { color: var(--green); text-decoration: none; }
+    .contact-box a:hover { text-decoration: underline; }
+
+    /* FOOTER */
+    footer {
+      padding: 44px 56px;
+      background: var(--primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    footer img { height: 56px; }
+    footer p { font-size: 0.82rem; color: rgba(255,255,255,0.45); }
+    footer a { color: rgba(255,255,255,0.45); text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; height: 68px; }
+      nav .nav-links { display: none; }
+      .page-hero { padding: 52px 24px 40px; }
+      .content-wrap { padding: 40px 20px 60px; }
+      footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/index.html" class="logo">
+    <img src="WeHandl_logo_transparent.png" alt="WeHandl.ai" />
+  </a>
+  <div class="nav-links">
+    <a href="/index.html#problem">The Problem</a>
+    <a href="/index.html#what-we-do">What We Do</a>
+    <a href="/index.html#solution">The Solution</a>
+    <a href="/index.html#products">Products</a>
+    <a href="/index.html#guides">Free Guides</a>
+    <a href="mailto:hello@wehandl.ai" class="btn-nav">Book a Demo</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <h1>Privacy Policy</h1>
+  <p>Effective Date: March 9, 2026</p>
+</div>
+
+<!-- CONTENT -->
+<div class="content-wrap">
+
+  <div class="intro-box">
+    <p>WeHandl.ai ("WeHandl," "we," "us," or "our") is a business based in Georgia, United States. This Privacy Policy explains how we collect, use, disclose, and protect information about you when you visit our website at wehandl.ai (the "Site") or use our services.</p>
+    <p>By using our Site or services, you agree to the terms of this Privacy Policy. If you do not agree, please do not use our Site or services.</p>
+  </div>
+
+  <!-- Section 1 -->
+  <div class="section">
+    <h2>1. Information We Collect</h2>
+    <h3>Information You Provide Directly</h3>
+    <p>We collect information you voluntarily provide when you:</p>
+    <ul>
+      <li>Fill out a contact or inquiry form</li>
+      <li>Download a free guide or resource</li>
+      <li>Book a demo or consultation</li>
+      <li>Subscribe to email communications</li>
+    </ul>
+    <p>This may include your name, email address, phone number, business name, and any other information you choose to provide.</p>
+
+    <h3>Information Collected Automatically</h3>
+    <p>When you visit our Site, we automatically collect certain technical data, including:</p>
+    <ul>
+      <li>IP address and general location (city/state level)</li>
+      <li>Browser type and version</li>
+      <li>Device type and operating system</li>
+      <li>Pages visited and time spent on pages</li>
+      <li>Referring website or source</li>
+    </ul>
+    <p>This information is collected through cookies, web beacons, and similar tracking technologies.</p>
+
+    <h3>Cookies and Tracking Technologies</h3>
+    <p>We use cookies and similar technologies to operate and improve our Site, analyze usage, and support our marketing efforts. You may control cookie preferences through your browser settings. Note that disabling certain cookies may affect the functionality of our Site.</p>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="section">
+    <h2>2. How We Use Your Information</h2>
+    <p>We use the information we collect for the following purposes:</p>
+    <ul>
+      <li>To respond to your inquiries and provide our services</li>
+      <li>To send you requested resources, guides, or content</li>
+      <li>To send marketing communications (you may opt out at any time)</li>
+      <li>To analyze and improve our Site and services</li>
+      <li>To comply with legal obligations</li>
+      <li>To prevent fraud and protect the security of our Site</li>
+    </ul>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="section">
+    <h2>3. How We Share Your Information</h2>
+    <p>We do not sell your personal information. We may share your information in the following circumstances:</p>
+    <ul>
+      <li><strong>Service Providers:</strong> We may share information with third-party vendors who assist us in operating our Site and delivering services (e.g., email platforms, CRM software, analytics providers). These vendors are contractually obligated to protect your information.</li>
+      <li><strong>Legal Requirements:</strong> We may disclose information if required by law, court order, or governmental authority.</li>
+      <li><strong>Business Transfers:</strong> If WeHandl is acquired or merges with another company, your information may be transferred as part of that transaction.</li>
+      <li><strong>With Your Consent:</strong> We may share information for other purposes with your explicit consent.</li>
+    </ul>
+  </div>
+
+  <!-- Section 4 -->
+  <div class="section">
+    <h2>4. California Privacy Rights (CCPA/CPRA)</h2>
+    <p>If you are a California resident, you have the following rights under the California Consumer Privacy Act (CCPA) and California Privacy Rights Act (CPRA):</p>
+    <ul>
+      <li><strong>Right to Know:</strong> You may request information about the categories and specific pieces of personal information we have collected about you, and how it is used and shared.</li>
+      <li><strong>Right to Delete:</strong> You may request that we delete personal information we have collected about you, subject to certain exceptions.</li>
+      <li><strong>Right to Correct:</strong> You may request that we correct inaccurate personal information.</li>
+      <li><strong>Right to Opt Out of Sale or Sharing:</strong> We do not sell or share personal information for cross-context behavioral advertising.</li>
+      <li><strong>Right to Non-Discrimination:</strong> We will not discriminate against you for exercising your privacy rights.</li>
+    </ul>
+    <p>To exercise your California privacy rights, please contact us at <a href="mailto:privacy@wehandl.ai">privacy@wehandl.ai</a>. We will respond to verified requests within 45 days.</p>
+  </div>
+
+  <!-- Section 5 -->
+  <div class="section">
+    <h2>5. Other U.S. State Privacy Rights</h2>
+    <p>Residents of certain U.S. states (including but not limited to Virginia, Colorado, Connecticut, Texas, and Nevada) may have additional privacy rights under their respective state laws, including rights to access, correct, delete, and opt out of certain uses of personal data.</p>
+    <p>To submit a privacy request, please contact us at <a href="mailto:privacy@wehandl.ai">privacy@wehandl.ai</a>. We will respond in accordance with applicable state law timelines.</p>
+  </div>
+
+  <!-- Section 6 -->
+  <div class="section">
+    <h2>6. Data Retention</h2>
+    <p>We retain personal information for as long as necessary to fulfill the purposes described in this policy, unless a longer retention period is required or permitted by law. When information is no longer needed, we securely delete or anonymize it.</p>
+  </div>
+
+  <!-- Section 7 -->
+  <div class="section">
+    <h2>7. Data Security</h2>
+    <p>We implement reasonable technical and organizational safeguards to protect your personal information from unauthorized access, disclosure, alteration, or destruction. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.</p>
+  </div>
+
+  <!-- Section 8 -->
+  <div class="section">
+    <h2>8. Third-Party Links</h2>
+    <p>Our Site may contain links to third-party websites. We are not responsible for the privacy practices of those websites. We encourage you to review the privacy policies of any third-party sites you visit.</p>
+  </div>
+
+  <!-- Section 9 -->
+  <div class="section">
+    <h2>9. Children's Privacy</h2>
+    <p>Our Site and services are not directed to children under the age of 13. We do not knowingly collect personal information from children. If you believe we have inadvertently collected information from a child, please contact us and we will promptly delete it.</p>
+  </div>
+
+  <!-- Section 10 -->
+  <div class="section">
+    <h2>10. Changes to This Privacy Policy</h2>
+    <p>We may update this Privacy Policy from time to time. When we do, we will revise the "Effective Date" at the top of this page. We encourage you to review this policy periodically. Your continued use of the Site after any changes constitutes your acceptance of the updated policy.</p>
+  </div>
+
+  <!-- Section 11 / Contact -->
+  <div class="contact-box">
+    <h2>11. Contact Us</h2>
+    <p>If you have questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at:</p>
+    <p><strong style="color:#fff;">WeHandl.ai</strong></p>
+    <p>Email: <a href="mailto:privacy@wehandl.ai">privacy@wehandl.ai</a></p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <img src="WeHandl_logo_transparent.png" alt="WeHandl.ai" />
+  <p>© 2025 WeHandl.ai — All rights reserved. &nbsp;|&nbsp; <a href="/privacy.html">Privacy Policy</a></p>
+</footer>
+
+</body>
+</html>
