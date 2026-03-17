@@ -302,6 +302,173 @@ img{display:block;max-width:100%}
   .lb-deadline{text-align:left}
   .footer-inner{flex-direction:column;align-items:flex-start;gap:12px}
 }
+  /* ─── RESET ─── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ─── TOKENS ─── */
+:root {
+  --bg:          #F7F8F5;
+  --white:       #FFFFFF;
+  --text:        #0F172A;
+  --muted:       #475569;
+  --border:      #E7EAF0;
+  --blue-accent: #1F5EFF;
+  --green-cta:   #16A34A;
+  --green-dark:  #15803D;
+  --red:         #E53935;
+  --gold:        #C98900;
+  --green-num:   #16A34A;
+  --navy:        #0F1F3D;
+  --blue-band:   #EEF4FF;
+  --shadow:      0 8px 30px rgba(15,23,42,0.05);
+  --shadow-md:   0 12px 40px rgba(15,23,42,0.09);
+  --shadow-lg:   0 20px 60px rgba(15,23,42,0.12);
+  --radius-sm:   12px;
+  --radius:      20px;
+  --radius-lg:   28px;
+}
+.wh-section {
+  background: var(--bg);
+  padding: 96px 24px;
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+}
+.wh-container { max-width: 1200px; margin: 0 auto; }
+.wh-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--blue-accent); margin-bottom: 18px;
+}
+.wh-eyebrow::before {
+  content: ''; display: block; width: 20px; height: 2px;
+  background: var(--blue-accent); border-radius: 2px;
+}
+.wh-headline {
+  font-size: clamp(36px, 5vw, 60px); font-weight: 900; line-height: 1.1;
+  letter-spacing: -0.025em; color: var(--text); max-width: 760px; margin-bottom: 16px;
+}
+.wh-subheadline {
+  font-size: clamp(16px, 2vw, 19px); font-weight: 400; color: var(--muted);
+  max-width: 620px; line-height: 1.7; margin-bottom: 56px;
+}
+.wh-cards-row {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 28px;
+}
+.wh-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 32px 28px; box-shadow: var(--shadow);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+.wh-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: rgba(15,23,42,0.14); }
+.wh-card--navy { background: var(--navy); border-color: var(--navy); border-top: 3px solid var(--green-cta); }
+.wh-card-num { font-size: clamp(40px, 4.5vw, 56px); font-weight: 900; line-height: 1; margin-bottom: 10px; letter-spacing: -0.03em; }
+.wh-card-num--red   { color: var(--red); }
+.wh-card-num--gold  { color: var(--gold); }
+.wh-card-num--teal  { color: #0891B2; }
+.wh-card-num--white { color: #FFFFFF; }
+.wh-card-label { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 8px; line-height: 1.35; }
+.wh-card--navy .wh-card-label { color: #FFFFFF; }
+.wh-card-sub { font-size: 13px; color: var(--muted); line-height: 1.55; }
+.wh-card--navy .wh-card-sub { color: rgba(255,255,255,0.55); }
+.wh-loss-band {
+  background: var(--blue-band); border: 1px solid rgba(31,94,255,0.18);
+  border-left: 4px solid var(--blue-accent); border-radius: var(--radius);
+  padding: 28px 36px; margin-bottom: 56px; display: flex; align-items: center; gap: 16px;
+}
+.wh-loss-band-icon { font-size: 28px; flex-shrink: 0; }
+.wh-loss-band-text { font-size: clamp(18px, 2.4vw, 24px); font-weight: 800; color: var(--text); line-height: 1.4; }
+.wh-loss-band-text span { color: var(--blue-accent); }
+.wh-compound-intro { max-width: 760px; margin-bottom: 32px; }
+.wh-compound-intro p { font-size: 16px; color: var(--muted); line-height: 1.75; margin-bottom: 10px; }
+.wh-compound-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 72px; }
+.wh-compound-card {
+  background: var(--white); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 32px 28px; box-shadow: var(--shadow); transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+.wh-compound-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.wh-compound-icon {
+  width: 44px; height: 44px; border-radius: 12px; background: var(--blue-band);
+  display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 18px;
+}
+.wh-compound-card h3 { font-size: 18px; font-weight: 800; color: var(--text); margin-bottom: 10px; }
+.wh-compound-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+.wh-divider { height: 1px; background: var(--border); margin-bottom: 72px; }
+.wh-calc-block { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.wh-calc-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue-accent); display: block; margin-bottom: 14px; }
+.wh-calc-headline { font-size: clamp(26px, 3vw, 38px); font-weight: 900; color: var(--text); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 16px; }
+.wh-calc-body { font-size: 15px; color: var(--muted); line-height: 1.75; margin-bottom: 32px; }
+.wh-results-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 32px; box-shadow: var(--shadow); }
+.wh-results-card-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; display: block; }
+.wh-result-row { display: flex; flex-direction: column; gap: 16px; }
+.wh-result-item { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+.wh-result-item:last-child { padding-bottom: 0; border-bottom: none; }
+.wh-result-item-label { font-size: 13px; color: var(--muted); font-weight: 500; line-height: 1.4; }
+.wh-result-item-value { font-size: 26px; font-weight: 900; letter-spacing: -0.02em; line-height: 1; text-align: right; }
+.wh-result-item-value--red   { color: var(--red); }
+.wh-result-item-value--gold  { color: var(--gold); }
+.wh-result-item-value--green { color: var(--green-num); }
+.wh-calc-form-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 36px 32px; box-shadow: var(--shadow-md); }
+.wh-field { margin-bottom: 20px; }
+.wh-field label { display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+.wh-field input, .wh-field select {
+  width: 100%; height: 52px; padding: 0 16px; background: #FAFBFC;
+  border: 1.5px solid var(--border); border-radius: 14px; font-size: 15px;
+  font-family: 'Inter', sans-serif; font-weight: 500; color: var(--text);
+  appearance: none; -webkit-appearance: none; outline: none;
+  transition: border-color 0.18s, box-shadow 0.18s;
+}
+.wh-field input:focus, .wh-field select:focus {
+  border-color: var(--blue-accent); box-shadow: 0 0 0 3px rgba(31,94,255,0.1); background: var(--white);
+}
+.wh-field-helper { display: block; font-size: 12px; color: var(--muted); margin-top: 5px; }
+.wh-select-wrap { position: relative; }
+.wh-select-wrap::after {
+  content: ''; position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+  width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent;
+  border-top: 6px solid var(--muted); pointer-events: none;
+}
+.wh-calc-btn {
+  width: 100%; height: 54px; background: var(--green-cta); color: #FFFFFF;
+  font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 700; border: none;
+  border-radius: 14px; cursor: pointer; transition: background 0.18s, transform 0.18s, box-shadow 0.18s;
+  margin-top: 4px;
+}
+.wh-calc-btn:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(22,163,74,0.3); }
+.wh-cta-block {
+  margin-top: 72px; text-align: center; padding: 64px 24px; background: var(--white);
+  border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow);
+}
+.wh-cta-block p { font-size: 18px; color: var(--muted); max-width: 560px; margin: 0 auto 28px; line-height: 1.7; }
+.wh-cta-btn {
+  display: inline-flex; align-items: center; gap: 8px; background: var(--green-cta);
+  color: #FFFFFF; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700;
+  padding: 17px 40px; border-radius: 100px; border: none; cursor: pointer;
+  text-decoration: none; transition: background 0.18s, transform 0.18s, box-shadow 0.18s;
+}
+.wh-cta-btn:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 14px 36px rgba(22,163,74,0.3); }
+.wh-cta-support { font-size: 13px; color: var(--muted); margin-top: 16px; max-width: 440px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+.wh-fade { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.wh-fade.wh-visible { opacity: 1; transform: translateY(0); }
+.wh-fade:nth-child(1) { transition-delay: 0.05s; }
+.wh-fade:nth-child(2) { transition-delay: 0.12s; }
+.wh-fade:nth-child(3) { transition-delay: 0.19s; }
+.wh-fade:nth-child(4) { transition-delay: 0.26s; }
+@media (max-width: 1024px) {
+  .wh-section { padding: 72px 24px; }
+  .wh-cards-row { grid-template-columns: 1fr 1fr; }
+  .wh-calc-block { grid-template-columns: 1fr; gap: 40px; }
+  .wh-compound-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .wh-section { padding: 56px 16px; }
+  .wh-cards-row { grid-template-columns: 1fr; gap: 16px; }
+  .wh-compound-grid { grid-template-columns: 1fr; gap: 16px; }
+  .wh-loss-band { flex-direction: column; gap: 10px; padding: 22px 20px; }
+  .wh-calc-form-card { padding: 24px 20px; }
+  .wh-result-item { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .wh-result-item-value { font-size: 26px; }
+  .wh-cta-block { padding: 44px 20px; }
+}
 </style>
 </head>
 <body>
@@ -447,6 +614,166 @@ img{display:block;max-width:100%}
   </div>
 </section>
 
+  <section class="wh-section" id="revenue-leak">
+  <div class="wh-container">
+
+    <div class="wh-eyebrow">The Revenue Leak</div>
+    <h2 class="wh-headline">Every Unanswered Call<br>Is Revenue You Won't Get Back</h2>
+    <p class="wh-subheadline">A missed call doesn't just cost you one job. It removes a customer — and every future transaction they represent — from your business permanently.</p>
+
+    <div class="wh-cards-row">
+      <div class="wh-card wh-fade">
+        <div class="wh-card-num wh-card-num--red">100</div>
+        <div class="wh-card-label">Missed calls per month</div>
+        <div class="wh-card-sub">Typical for contractors without 24/7 response coverage</div>
+      </div>
+      <div class="wh-card wh-fade">
+        <div class="wh-card-num wh-card-num--gold">50 jobs</div>
+        <div class="wh-card-label">Jobs never booked</div>
+        <div class="wh-card-sub">At a 50% close rate on answered leads</div>
+      </div>
+      <div class="wh-card wh-fade">
+        <div class="wh-card-num wh-card-num--teal">$300K+</div>
+        <div class="wh-card-label">Annual revenue lost</div>
+        <div class="wh-card-sub">Direct missed jobs only — before referrals, repeat work, or reviews</div>
+      </div>
+      <div class="wh-card wh-card--navy wh-fade">
+        <div class="wh-card-num wh-card-num--white">$50K–$70K+</div>
+        <div class="wh-card-label">True monthly impact</div>
+        <div class="wh-card-sub">Accounting for repeat work, referrals, and review-driven inbound</div>
+      </div>
+    </div>
+
+    <div class="wh-loss-band">
+      <div class="wh-loss-band-icon">📉</div>
+      <div class="wh-loss-band-text">
+        <span>$300,000+ in annual revenue</span> lost to missed calls — before factoring in referrals, repeat contracts, or reviews.
+      </div>
+    </div>
+
+    <div class="wh-compound-intro">
+      <p>The direct revenue figure understates the real damage. Every customer you fail to capture eliminates the downstream value they carry — repeat service, word-of-mouth referrals, and public reviews that drive future inbound. That $300,000 in missed direct revenue conservatively represents <strong style="color:var(--text)">$450,000 to $900,000 in total lost business value</strong> when the full customer lifecycle is considered.</p>
+    </div>
+
+    <div class="wh-compound-grid">
+      <div class="wh-compound-card wh-fade">
+        <div class="wh-compound-icon">🔁</div>
+        <h3>Repeat Business</h3>
+        <p>Every customer you serve generates maintenance calls, upgrades, and additional projects over time. A missed call ends that relationship before it starts.</p>
+      </div>
+      <div class="wh-compound-card wh-fade">
+        <div class="wh-compound-icon">🗣️</div>
+        <h3>Referrals</h3>
+        <p>Satisfied home service customers refer an average of 2–3 new clients. Each missed call removes that referral network from your pipeline.</p>
+      </div>
+      <div class="wh-compound-card wh-fade">
+        <div class="wh-compound-icon">⭐</div>
+        <h3>Reviews &amp; Organic Traffic</h3>
+        <p>Review volume and recency directly affect your Google map pack position. Fewer served customers means fewer reviews — and measurably lower organic visibility.</p>
+      </div>
+    </div>
+
+    <div class="wh-divider"></div>
+
+    <div class="wh-calc-block">
+      <div>
+        <span class="wh-calc-eyebrow">Loss Calculator</span>
+        <h3 class="wh-calc-headline">Calculate Your Revenue Loss</h3>
+        <p class="wh-calc-body">Enter your numbers to see the direct and compounding cost of unanswered leads. Results include missed monthly revenue, annualized loss, and long-term lifecycle impact.</p>
+        <div class="wh-results-card">
+          <span class="wh-results-card-label">Estimated annual impact</span>
+          <div class="wh-result-row">
+            <div class="wh-result-item">
+              <div class="wh-result-item-label">Missed revenue<br><span style="font-size:11px;opacity:.7">per month, direct jobs only</span></div>
+              <div class="wh-result-item-value wh-result-item-value--red" id="res-monthly">$25,000</div>
+            </div>
+            <div class="wh-result-item">
+              <div class="wh-result-item-label">Annual direct loss<br><span style="font-size:11px;opacity:.7">missed jobs × job value × 12</span></div>
+              <div class="wh-result-item-value wh-result-item-value--gold" id="res-annual">$300,000</div>
+            </div>
+            <div class="wh-result-item">
+              <div class="wh-result-item-label">Long-term estimated loss<br><span style="font-size:11px;opacity:.7">repeat work, referrals &amp; review effect</span></div>
+              <div class="wh-result-item-value wh-result-item-value--green" id="res-longterm">$660,000</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="wh-calc-form-card">
+        <div class="wh-field">
+          <label for="wh-calls">Inbound calls per month</label>
+          <input id="wh-calls" type="number" value="200" min="0">
+        </div>
+        <div class="wh-field">
+          <label for="wh-missed">Missed call rate (%)</label>
+          <input id="wh-missed" type="number" value="50" min="0" max="100">
+          <span class="wh-field-helper">Industry average: 40–60% for contractors without 24/7 coverage</span>
+        </div>
+        <div class="wh-field">
+          <label for="wh-close">Close rate (%)</label>
+          <input id="wh-close" type="number" value="50" min="0" max="100">
+          <span class="wh-field-helper">Typical range: 40–60% for qualified inbound leads</span>
+        </div>
+        <div class="wh-field">
+          <label for="wh-value">Average job value ($)</label>
+          <input id="wh-value" type="number" value="500" min="0">
+        </div>
+        <div class="wh-field">
+          <label for="wh-multiplier">Long-term value multiplier</label>
+          <div class="wh-select-wrap">
+            <select id="wh-multiplier">
+              <option value="1.5">Conservative (1.5×)</option>
+              <option value="2.2" selected>Typical (2.2×)</option>
+              <option value="3.0">Aggressive (3.0×)</option>
+            </select>
+          </div>
+          <span class="wh-field-helper">Estimates compounding value: repeat contracts, referrals, and review-driven inbound</span>
+        </div>
+        <button class="wh-calc-btn" onclick="whCalculate()">
+          Calculate My Lost Revenue →
+        </button>
+      </div>
+    </div>
+
+    <div class="wh-cta-block">
+      <p>These are conservative estimates based on industry-standard close rates.<br><strong style="color:#0F172A">The loss is real. The solution is proven.</strong></p>
+      <a class="wh-cta-btn" href="#contact">Book a Free Strategy Call →</a>
+      <p class="wh-cta-support">Book a free 20-minute call. We'll assess your current lead response gap and show you exactly what WeHandl would recover.</p>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function whFmt(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
+function whCalculate() {
+  const calls      = parseFloat(document.getElementById('wh-calls').value)    || 0;
+  const missedPct  = parseFloat(document.getElementById('wh-missed').value)   || 0;
+  const closePct   = parseFloat(document.getElementById('wh-close').value)    || 0;
+  const jobVal     = parseFloat(document.getElementById('wh-value').value)    || 0;
+  const multiplier = parseFloat(document.getElementById('wh-multiplier').value) || 2.2;
+  const missedCalls    = calls * (missedPct / 100);
+  const lostJobs       = missedCalls * (closePct / 100);
+  const monthlyLoss    = lostJobs * jobVal;
+  const annualLoss     = monthlyLoss * 12;
+  const longTermAnnual = annualLoss * multiplier;
+  const items = document.querySelectorAll('.wh-result-item');
+  items.forEach(el => { el.style.transition = 'opacity 0.2s'; el.style.opacity = '0'; });
+  setTimeout(() => {
+    document.getElementById('res-monthly').textContent  = whFmt(monthlyLoss);
+    document.getElementById('res-annual').textContent   = whFmt(annualLoss);
+    document.getElementById('res-longterm').textContent = whFmt(longTermAnnual);
+    items.forEach(el => { el.style.opacity = '1'; });
+  }, 220);
+}
+(function() {
+  const targets = document.querySelectorAll('.wh-fade');
+  if (!('IntersectionObserver' in window)) { targets.forEach(el => el.classList.add('wh-visible')); return; }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('wh-visible'); io.unobserve(entry.target); } });
+  }, { threshold: 0.12 });
+  targets.forEach(el => io.observe(el));
+})();
+</script>
 <div class="divider"></div>
 
 <!-- HOW IT WORKS -->
