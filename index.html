@@ -412,6 +412,7 @@ img{display:block;max-width:100%}
 
 @media(max-width:1024px){
   .hero-inner,.guide-box{grid-template-columns:1fr;gap:48px}
+  .agent-steps{grid-template-columns:1fr 1fr}
   .hero-visual{display:none}
   .solution-grid,.who-grid,.pricing-grid{grid-template-columns:1fr}
   .calc-layout,.how-grid{grid-template-columns:1fr}
@@ -479,118 +480,43 @@ img{display:block;max-width:100%}
       <p class="hero-micro">Most service businesses miss 30–50% of inbound opportunities simply because they don't respond fast enough or follow up consistently.</p>
     </div>
     <div class="hero-visual">
-      <div class="hero-visual-card">
-        <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;font-family:'Poppins',sans-serif">Every day without a system</div>
-        <svg width="100%" viewBox="0 0 420 200" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
-          <line x1="0" y1="170" x2="420" y2="170" stroke="#E2E8F0" stroke-width="1.5"/>
-          <!-- ground coins -->
-          <ellipse cx="60" cy="176" rx="10" ry="5" fill="#FCD34D" opacity=".4"/>
-          <ellipse cx="130" cy="177" rx="9" ry="4.5" fill="#FCD34D" opacity=".35"/>
-          <ellipse cx="210" cy="176" rx="10" ry="5" fill="#FCD34D" opacity=".38"/>
-          <ellipse cx="290" cy="177" rx="9" ry="4.5" fill="#FCD34D" opacity=".32"/>
-          <ellipse cx="360" cy="176" rx="10" ry="5" fill="#FCD34D" opacity=".36"/>
-          <text x="60" y="179" text-anchor="middle" font-family="Inter" font-size="7" font-weight="700" fill="#92400E" opacity=".55">$</text>
-          <text x="210" y="179" text-anchor="middle" font-family="Inter" font-size="7" font-weight="700" fill="#92400E" opacity=".55">$</text>
-          <text x="360" y="179" text-anchor="middle" font-family="Inter" font-size="7" font-weight="700" fill="#92400E" opacity=".55">$</text>
-          <g class="fig">
-            <!-- dropping coins -->
-            <g class="ca"><ellipse cx="-20" cy="120" rx="11" ry="7" fill="#FCD34D"/><text x="-20" y="124" text-anchor="middle" font-family="Inter" font-size="9" font-weight="800" fill="#92400E">$</text></g>
-            <g class="cb"><ellipse cx="-36" cy="128" rx="10" ry="6" fill="#FCD34D" opacity=".9"/><text x="-36" y="132" text-anchor="middle" font-family="Inter" font-size="8" font-weight="800" fill="#92400E">$</text></g>
-            <g class="cc"><ellipse cx="-10" cy="132" rx="9" ry="5.5" fill="#FBBF24" opacity=".85"/></g>
-            <g class="cd"><ellipse cx="-28" cy="124" rx="9" ry="6" fill="#FCD34D" opacity=".8"/></g>
-            <g class="body-bob">
-              <!-- legs -->
-              <g class="ll"><rect x="-14" y="118" width="11" height="42" rx="5" fill="#1E40AF"/><ellipse cx="-8" cy="160" rx="10" ry="5.5" fill="#0F172A"/></g>
-              <g class="lr"><rect x="3" y="118" width="11" height="42" rx="5" fill="#1E40AF"/><ellipse cx="8" cy="160" rx="10" ry="5.5" fill="#0F172A"/></g>
-              <!-- body -->
-              <rect x="-21" y="72" width="42" height="52" rx="9" fill="#1E3A8A"/>
-              <rect x="-5" y="75" width="10" height="36" rx="3" fill="#F1F5F9" opacity=".9"/>
-              <path d="M -3 77 L 0 88 L 3 77 Z" fill="#EF4444" opacity=".9"/>
-              <!-- arms -->
-              <g class="al">
-                <rect x="-32" y="76" width="12" height="36" rx="6" fill="#1E3A8A"/>
-                <ellipse cx="-26" cy="114" rx="9" ry="8" fill="#F59E0B"/>
-                <text x="-26" y="118" text-anchor="middle" font-family="Inter" font-size="10" font-weight="800" fill="#7C2D12">$</text>
-                <path d="M -31 116 Q -35 122 -29 124" fill="none" stroke="#DC2626" stroke-width="1.8" stroke-linecap="round"/>
-              </g>
-              <g class="ar"><rect x="20" y="76" width="12" height="36" rx="6" fill="#1E3A8A"/><ellipse cx="26" cy="114" rx="8" ry="7" fill="#FBBF24"/></g>
-              <!-- neck -->
-              <rect x="-6" y="52" width="12" height="24" rx="5" fill="#FBBF24"/>
-              <!-- head -->
-              <ellipse cx="0" cy="38" rx="22" ry="24" fill="#FBBF24"/>
-              <ellipse cx="-8" cy="33" rx="3.5" ry="4.5" fill="white"/><ellipse cx="8" cy="33" rx="3.5" ry="4.5" fill="white"/>
-              <ellipse cx="-8" cy="34" rx="2" ry="2.5" fill="#1E293B"/><ellipse cx="8" cy="34" rx="2" ry="2.5" fill="#1E293B"/>
-              <path d="M -10 28 Q -7 24 -4 28" fill="none" stroke="#92400E" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M 4 28 Q 7 24 10 28" fill="none" stroke="#92400E" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M -6 48 Q 0 44 6 48" fill="none" stroke="#92400E" stroke-width="1.8" stroke-linecap="round"/>
-              <path d="M 16 22 Q 18 16 14 13 Q 10 16 12 22 Z" fill="#93C5FD" opacity=".7"/>
-              <rect x="-24" y="12" width="48" height="7" rx="3.5" fill="#0F172A"/>
-              <rect x="-16" y="-6" width="32" height="22" rx="5" fill="#1E293B"/>
-            </g>
-            <!-- labels -->
-            <g class="lb1" transform="translate(-10,-90)">
-              <rect x="-90" y="0" width="180" height="36" rx="10" fill="#FEF2F2" stroke="#FECACA" stroke-width="1.5"/>
-              <text x="0" y="15" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="700" fill="#B91C1C">Not following up on leads</text>
-              <text x="0" y="29" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#DC2626">Lost jobs every single day</text>
-            </g>
-            <g class="lb2" transform="translate(-10,-90)">
-              <rect x="-96" y="0" width="192" height="36" rx="10" fill="#FFF7ED" stroke="#FED7AA" stroke-width="1.5"/>
-              <text x="0" y="15" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="700" fill="#C2410C">Marketing to the wrong people</text>
-              <text x="0" y="29" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#EA580C">Budget spent. No results.</text>
-            </g>
-            <g class="q1" transform="translate(30,-50)"><text x="0" y="0" font-family="Poppins,sans-serif" font-size="20" font-weight="800" fill="#EF4444" opacity=".8">?</text></g>
-            <g class="q2" transform="translate(42,-30)"><text x="0" y="0" font-family="Poppins,sans-serif" font-size="14" font-weight="800" fill="#F97316" opacity=".7">?</text></g>
-          </g>
-        </svg>
-        <div style="font-size:12px;color:var(--muted);text-align:center;margin-top:8px">Revenue already lost — and he doesn't even know it</div>
-      </div>
-</section>
-
-<!-- TRANSITION BLOCK -->
-<div class="transition-block">
-  <div class="transition-block-inner">
-    <h3 class="tb-headline">You might already have enough demand</h3>
-    <p class="tb-body">But if you're missing calls or responding too slowly, those opportunities don't turn into jobs.</p>
-  </div>
-</div>
-
-<!-- 4. CALCULATOR -->
-<section class="calc-section" id="calculator">
-  <div class="calc-inner">
-    <div class="calc-layout">
-      <div>
-        <span class="calc-eyebrow">Missed Jobs Calculator</span>
-        <h2 class="calc-headline">How many jobs are you missing each month?</h2>
-        <p class="calc-body">Miss 100 calls a month? Even with a 50% close rate, that's <strong>50 missed jobs</strong>.<br><br>At $500 per job, that's <strong>$25,000/month</strong> — or <strong>$300,000/year</strong> in missed work.<br><br>And that doesn't include repeat customers, referrals, or reviews you never got.</p>
-        <div class="calc-results-card">
-          <span class="calc-results-lbl">Your estimated impact</span>
-          <div class="calc-result-item">
-            <div><div class="calc-result-lbl">Missed revenue per month</div><span class="calc-result-sub">direct jobs only</span></div>
-            <div class="calc-result-val red" id="res-monthly">$25,000</div>
+      <div class="hero-visual-card hero-agent-card">
+        <div class="hero-agent-top">
+          <span class="agent-kicker">What your AI lead agent handles</span>
+          <div class="agent-status"><span class="agent-status-dot"></span>Working 24/7</div>
+        </div>
+        <div class="agent-flow-line"></div>
+        <div class="agent-steps">
+          <div class="agent-step a1">
+            <div class="agent-step-icon">☎</div>
+            <div>
+              <div class="agent-step-title">Answers calls & texts</div>
+              <div class="agent-step-copy">Responds right away so leads don't go cold.</div>
+            </div>
           </div>
-          <div class="calc-result-item">
-            <div><div class="calc-result-lbl">Annual missed work</div><span class="calc-result-sub">before referrals &amp; repeat</span></div>
-            <div class="calc-result-val gold" id="res-annual">$300,000</div>
+          <div class="agent-step a2">
+            <div class="agent-step-icon">✓</div>
+            <div>
+              <div class="agent-step-title">Qualifies the lead</div>
+              <div class="agent-step-copy">Filters the basics before you spend time on it.</div>
+            </div>
           </div>
-          <div class="calc-result-item">
-            <div><div class="calc-result-lbl">Estimated long-term value</div><span class="calc-result-sub">includes referrals &amp; repeat customers</span></div>
-            <div class="calc-result-val green" id="res-longterm">$660,000</div>
+          <div class="agent-step a3">
+            <div class="agent-step-icon">↻</div>
+            <div>
+              <div class="agent-step-title">Follows up automatically</div>
+              <div class="agent-step-copy">Keeps the conversation moving if they don't book right away.</div>
+            </div>
+          </div>
+          <div class="agent-step a4">
+            <div class="agent-step-icon">📅</div>
+            <div>
+              <div class="agent-step-title">Schedules the appointment</div>
+              <div class="agent-step-copy">Gets qualified leads onto your calendar faster.</div>
+            </div>
           </div>
         </div>
-        <div class="calc-cta-card">
-          <p>Ready to see what this looks like for your business?</p>
-          <a class="btn btn-white btn-sm" href="#contact">Schedule a Free Call Today</a>
-        </div>
-      </div>
-      <div class="calc-form-card">
-        <div class="calc-field"><label for="wh-calls">Inbound inquiries per month</label><input id="wh-calls" type="number" value="200" min="0"></div>
-        <div class="calc-field"><label for="wh-missed">Missed / unanswered rate (%)</label><input id="wh-missed" type="number" value="50" min="0" max="100"><span class="calc-helper">Industry average: 40–60% without 24/7 coverage</span></div>
-        <div class="calc-field"><label for="wh-close">Close rate on answered leads (%)</label><input id="wh-close" type="number" value="50" min="0" max="100"><span class="calc-helper">Typical range: 40–60%</span></div>
-        <div class="calc-field"><label for="wh-value">Average job value ($)</label><input id="wh-value" type="number" value="500" min="0"></div>
-        <div class="calc-field"><label for="wh-mult">Long-term value multiplier</label>
-          <select id="wh-mult"><option value="1.5">Conservative (1.5×)</option><option value="2.2" selected>Typical (2.2×)</option><option value="3.0">Aggressive (3.0×)</option></select>
-          <span class="calc-helper">Accounts for repeat work, referrals, and reviews</span></div>
-        <button class="calc-submit" onclick="whCalc()">Calculate My Missed Jobs</button>
+        <div class="agent-bottom-note">So you spend less time chasing leads — and more time closing jobs.</div>
       </div>
     </div>
   </div>
@@ -850,8 +776,8 @@ img{display:block;max-width:100%}
 <section id="contact" style="padding:88px var(--px) 0">
   <div class="cta-box">
     <span class="cta-eyebrow">Ready to Grow?</span>
-    <h2>Schedule A Free Call Today</h2>
-    <p>We'll walk through your current follow-up and marketing, show you where jobs are being missed, and talk through what a better system could look like for your business.</p>
+    <h2>Want to see how this could work in your business?</h2>
+    <p>We'll walk through your current follow-up and marketing and show you what a better system could look like for your business.</p>
     <div class="cta-btns">
       <a class="btn btn-white" href="mailto:info@wehandl.ai">Schedule a Free Call Today</a>
     </div>
